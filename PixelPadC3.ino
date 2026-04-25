@@ -167,7 +167,7 @@ void ScanWiFi() {
 
     for (int i = 0; i < n; ++i) {
       // Create a string for the display containing SSID and RSSI
-      String networkInfo = String(i + 1) + ": " + WiFi.SSID(i) + " (" + String(WiFi.RSSI(i)) + ")";
+      String networkInfo = String(i + 1) + ":" + WiFi.SSID(i);
       
       // Print to Serial for debugging 
       Serial.println(networkInfo);
@@ -191,6 +191,7 @@ void ScanWiFi() {
 void terminalPrint(String text) {
   // Check if we are at the bottom of the screen
   if (cursorY + lineHeight > SCREEN_HEIGHT) {
+    delay(2000);
     // Basic "Scroll" effect: 
     // In GFX, the easiest way to scroll without a massive RAM buffer 
     // is to clear and reset, though professional implementations 
